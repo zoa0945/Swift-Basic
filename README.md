@@ -14,6 +14,7 @@
 6. 열거형 (Enumerations)
 7. 클로저 (Closure)
 8. 구조체 (ClassAndStructure)
+9. 상속 (Inheritance)
 
 ## 버전
 Swift 5.1
