@@ -24,6 +24,9 @@ struct Size {
     var width = 0.0, height = 0.0
 }
 
+//getter : 인스턴스 내,외부의 값을 연산해서 적절한 값을 돌려주는 접근자 역할
+//setter : 내부의 프로퍼티 값을 간접적으로 설정하는 설정자 역할
+//setter의 매개변수를 설정하지 않으면 default값인 newValue로 사용 가능
 struct Rect {
     var origin = Point()
     var size = Size()
@@ -49,6 +52,7 @@ square.origin.x // 10
 square.origin.y // 10
 
 //Read Only Computed Property : getter만 있고 setter를 제공하지 않는 프로퍼티
+//읽기 전용 프로퍼티는 값을 변경할 수 없음
 struct Cuboid {
     var width = 0.0, height = 0.0, depth = 0.0
     var volume: Double {
@@ -82,6 +86,7 @@ stepCounter.totalSteps = 895
 
 //Type Property : static 또는 class 키워드 사용
 //static으로 선언된 프로퍼티는 서브클래서에서 override 불가능
+//인스턴스를 생성하지 않아도 타입이름.타입프로퍼티이름 으로 접근 가능
 struct SomeStructure {
     static var storedTypeProperty = "Some value"
     static var computedTypeProperty: Int {
