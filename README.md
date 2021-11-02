@@ -15,6 +15,9 @@
 7. 클로저 (Closure)
 8. 구조체 (ClassAndStructure)
 9. 상속 (Inheritance)
+10. assert와 guard (assertAndGuard)
+11. 프로토콜 (Protocol)
+12. 익스텐션 (Extension)
 
 ## 버전
 Swift 5.1
