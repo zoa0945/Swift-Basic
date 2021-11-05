@@ -2,11 +2,15 @@ import UIKit
 
 //열거형 (Enumerations) : 관련된 값으로 이루어진 그룹을 공통의 타입으로 선언
 //case 값을 사용
+
+/*
 enum SomeEnum{
-    
+   ...
 }
+ */
 
 enum CompassPoint {
+    // case north, south, west, east
     case north
     case south
     case west
@@ -23,7 +27,22 @@ enum barcode {
     case qrCode(String) // qr코드는 String으로 이루어져 있다
 }
 
+enum PhoneError {
+    case unknown
+    case batteryLow(String)
+}
+
+let error = PhoneError.batteryLow("배터리가 부족합니다.")
+
+switch error {
+case .batteryLow(let message):
+    print(message)
+case .unknown:
+    print("알 수 없는 오류입니다.")
+}
+
 //Raw값 : case에 지정된 고유의 값
+//rawValue를 사용하여 그 값을 사용할 수 있음
 //raw값은 Character, String, Int, Float 등의 형을 사용할 수 있음
 enum ASCIIControlCharacter: Character {
     case tab = "\t"
