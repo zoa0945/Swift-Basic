@@ -1,10 +1,64 @@
 import UIKit
 
-//Closure : 코드블럭, 이름이 없는 함수
-/* { (parameters) -> return type in
+/*
+ Closure
+ - 코드블럭, 이름이 없는 함수
+ - 코드에서 전달 및 사용할 수 있는 독립 기능 블록
+ - 일급 객체의 역할을 할 수 있음
+ - 일급 객체: 전달 인자로 보낼 수도 있고 변수/상수 등으로 저장하거나 전달할 수 있으며
+   함수의 반환 값이 될 수도 있음
+ { (parameters) -> return type in
      statements
-   } 의 형태
+ }
 */
+let hello = { () -> () in
+    print("hello")
+}
+
+hello()
+
+let hello2 = { (name: String) -> String in
+    return "Hello \(name)"
+}
+
+// 클로저를 호출할 때 전달인자는 쓰지않고 parameter만 사용
+hello2("Hoon")
+
+// 클로저를 파라미터로 받는 함수
+func doSomething(_ closure: () -> ()) {
+    closure()
+}
+
+doSomething {
+    print("hello")
+}
+
+// 후행클로저 : 마지막 매개변수로 전달되는 클로저에만 해당
+// 매개변수로 클로저 여러개가 전달될 경우 마지막 클로저만 후행클로저로 사용 가능
+doSomething() {
+    print("hello2")
+}
+
+// 클로저를 반환하는 함수
+func doSomething2() -> () -> () {
+    return { () -> () in
+        print("hello doSomething")
+    }
+}
+
+doSomething2()()
+
+// 매개변수에 클로저가 여러개 있는 경우 다중후행클로저 사용 가능
+func doSomething3(success: () -> (), fail: () -> ()) {
+    
+}
+
+doSomething3 {
+    <#code#>
+} fail: {
+    <#code#>
+}
+
 let numbers = [3, 5, 6, 1, 7, 2]
 
 //정렬 메소드 (클로져 사용)
@@ -12,7 +66,7 @@ let reversedNumbers = numbers.sorted(by:
     /*{ (s1: Int, s2: Int) -> Bool in
         return s1 > s2
         }
-        문맥에서 타입 추론 (타입 생략 가능)
+        문맥에서 타입 추론 (파라미너, 리턴타입 생략 가능)
       { s1, s2 in
         return s1 > s2
         }
@@ -20,7 +74,7 @@ let reversedNumbers = numbers.sorted(by:
       { s1, s2 in
         s1 > s2
         }
-        인자 이름 축약 (인자 값을 순서대로 $0, $1, $2 등으로 표현 가능)
+        약식인수를 사용하며 매개변수 이름 변환 (순서대로 $0, $1, $2 등으로 표현 가능)
       { $0 > $1 }
         연산자 메소드 (Int, String 등의 타입은 비교연산자 > 구현). */
       >
@@ -28,7 +82,7 @@ let reversedNumbers = numbers.sorted(by:
 
 reversedNumbers // [7, 6, 5, 3, 2, 1]
 
-//후위 클로져 (함수이ㅡ 마지막 인자로 클로저를 넣고 그 클로저가 길다면 후위 클로저 사용 가능)
+//후행 클로져 (함수의 마지막 인자로 클로저를 넣고 그 클로저가 길다면 후행 클로저 사용 가능)
 let digitNames = [0: "Zero", 1: "One", 2: "Two", 3: "Three", 4: "Four", 5: "Five",
                   6: "Six", 7: "Seven", 8: "Eight", 9: "Nine"]
 let num = [16, 57, 194]

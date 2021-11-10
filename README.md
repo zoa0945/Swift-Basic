@@ -18,6 +18,8 @@
 10. assert와 guard (assertAndGuard)
 11. 프로토콜 (Protocol)
 12. 익스텐션 (Extension)
+13. 옵셔널체이닐 (OptionalChaining)
+14. 오류제어 (tryCatch)
 
 ## 버전
 Swift 5.1
